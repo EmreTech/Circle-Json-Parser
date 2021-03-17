@@ -63,21 +63,6 @@ std::string convert12(std::string str)
     return outputStr;
 }
 
-std::string cut_meridien(const std::string& str)
-{
-    std::string output = str;
-    size_t AM_Pos = output.find('A');
-    size_t PM_Pos = output.find('P');
-
-    if (AM_Pos != std::string::npos) {
-        output = output.substr(0, AM_Pos);
-    } else if (PM_Pos != std::string::npos) {
-        output = output.substr(0, PM_Pos);
-    }
-
-    return output;
-}
-
 int main(int argc, char** argv) {
     downloadFile(CIRCLE_USER_INFO_LINK, "USERINFO.json");
 
@@ -122,7 +107,7 @@ int main(int argc, char** argv) {
         std::cout << "----------------------------------------------------" << '\n';
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(8000)); // 5 seconds
+    std::this_thread::sleep_for(std::chrono::milliseconds(8000)); // 8 seconds
 
     std::cout << "\nBedtime: " << '\n';
 
@@ -139,7 +124,7 @@ int main(int argc, char** argv) {
     std::cout << "Start: " << bedtime_start_12 << '\n' <<
     "End: " << bedtime_end_12 << '\n';
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000)); // 5 seconds
+    std::this_thread::sleep_for(std::chrono::milliseconds(3000)); // 3 seconds
 
     std::cout << '\n' << "Category usage for today: " << '\n';
     std::cout << "|    Category     |     Time Spent    |" << '\n';
@@ -150,7 +135,7 @@ int main(int argc, char** argv) {
         std::cout << "-----------------------------------------------" << '\n';
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(10000)); // 5 seconds
+    std::this_thread::sleep_for(std::chrono::milliseconds(10000)); // 10 seconds
 
     std::cout << '\n' << "Websites usage for today: " << '\n';
     std::cout << "Warning: Usually this would be formatted, this is not totally formatted." << '\n' << '\n';
